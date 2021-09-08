@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content ="width = device-width,initial-scale = 1.0">
+		<title></title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" 
+		integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" 
+		crossorigin="anonymous" />
+		<link rel="stylesheet type"text/css" href="stylef.css">
+
+	</head>
+	<body>
+	<div class="container">
+		<div class="header">
+		<h2><b><u>INDIVIDUAL REGISTRATION</u></b></h2>
+		</div>
+		<form class="form" id="form">
+		<div class="form-control">
+		<label>Name</label>
+		<input type="text" name"" id="name" placeholder="Name " autocomplete="off">
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+		
+		<div class="form-control">
+		<label>Contact Number</label>
+		<input type="number" name"" id="contact" placeholder="Contact Number" autocomplete="off">
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+		
+		
+		<div class="form-control">
+		<label>Address</label><br>
+		<textarea rows="3" cols="63" name"" id="address" placeholder="Address"  autocomplete="off"></textarea>
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+		<h2><b><u>Requirement</u></b></h2><br>
+		<form class="form" id="form">
+		<div class="form-control">
+		<label>City</label>
+		<input type="text" name"" id="city" placeholder="City " autocomplete="off">
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+		
+		<div class="form-control">
+		<label>Work Type</label>
+		<input class="radio-input" type="radio" name="" value="temprary" id="work" /> Temporary work 
+                    	<input class="radio-input" type="radio" name="" value="permanent" id="work" />Permanent work
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+		
+		<div class="form-control">
+		<label>Expected Salary</label>
+		<input type="number" name"" id="salary" placeholder="₹ Salary" autocomplete="off">
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+		
+		<div class="form-control">
+		<label>Experience</label>
+		<select class="drpdown" type="text" value="" name = "Experience" required>
+                  		<option value = "0 ">0 Years</option>
+	    		<option value = "0-2">0 to 2 years</option>
+                    		<option value = "0-5">0 to 5 years</option>
+	    		<option value = "10">10 years</option>
+	    		<option value = "10 or above" >10 or above</option>
+         		</select>
+		<i class="fas fa-check-circle"></i>
+		<i class="fas fa-exclamation-circle"></i>
+		<small>Error Msg</small>
+		</div>
+
+		
+		<input type="submit" value="Submit" class="btn" id="submit" name=""   >
+		<button  class="btn"  name=""  onclick="window.location.href = 'login1.html'; ">Already Registered </button>
+		<button  class="btn"  name="" onclick="window.location.href = 'company.html';">company register</button>
+		<button  class="btn"  name="" onclick="window.location.href = 'login1.html';">Back</button>
+		
+		</form>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+
+		const form = document.getElementById('form');
+		const name = document.getElementById('name');
+		const contact = document.getElementById('contact');
+		const address = document.getElementById('address');
+		const city = document.getElementById('city');
+		const salary = document.getElementById('salary');
+		
+
+		
+		//add event
+		form.addEventListener ("submit", (event) => {
+		event.preventDefault();
+		validate();
+		})
+		
+		const sendData = (sRate, count) => {
+			if(sRate === count){
+				swal("Successfully Registered!", "Thank you for Registering with us!!", "success");
+				
+			}
+		}
+		
+		const successMsg =() => {
+			let formCon = document.getElementsByClassName('form-control');
+			var count=formCon.length-4;
+			for(var i=0; i < formCon.length; i++){
+			if(formCon[i].className === "form-control success"){
+				var sRate = 0+i;
+				console.log(sRate);
+				sendData(sRate, count);
+				}else{
+				return false;
+				}
+			}
+		}
+				
+	
+		const validate =()=> {
+		const nameVal = name.value.trim();
+		const contactVal = contact.value.trim();
+		const addressVal =address.value.trim();
+		const cityVal= city.value.trim();
+		const salaryVal = salary.value.trim();
+		
+
+		
+		if(nameVal ===""){
+		setErrorMsg(name,'name cannot be blank');
+		}else if(nameVal.length <= 2){
+		setErrorMsg(name,'name min 3 char');
+		}else{
+		setSuccessMsg(name);
+		}
+		
+		if(contactVal === ""){
+		setErrorMsg(contact,'contact cannot be blank');
+		}else if (contactVal.length != 10){
+		setErrorMsg(contact,'Not a valid phone number');
+		}else {
+		setSuccessMsg(contact);
+		}
+		
+		if(addressVal ===""){
+		setErrorMsg(address,'address cannot be blank');
+		}else{
+		setSuccessMsg(address);
+		}
+		
+		if(cityVal ===""){
+		setErrorMsg(city,'city name cannot be blank');
+		}else if(cityVal.length <= 2){
+		setErrorMsg(city ,'city min 3 char');
+		}else{
+		setSuccessMsg(city);
+		}
+		
+		if(salaryVal === ""){
+		setErrorMsg(salary,'salary number cannot be blank');
+		}else {
+		setSuccessMsg(salary);
+		}
+		
+		
+		successMsg();
+		}
+		function setErrorMsg(input , errormsgs){
+		const formControl = input.parentElement;
+		const small= formControl.querySelector('small');
+		formControl.className= "form-control error";
+		small.innerText = errormsgs;
+		}
+		
+		function setSuccessMsg(input){
+		const formControl = input.parentElement;
+		formControl.className= "form-control success";
+		}
+		
+	</script>
+	</body>
+</html>

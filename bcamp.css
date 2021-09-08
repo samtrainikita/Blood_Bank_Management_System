@@ -1,0 +1,81 @@
+
+
+h2 {
+  color: #708090;
+  font-family: "Kanit";
+  font-size: 60px;
+  line-height:1em;
+  margin: 40;
+  text-align: center;
+}
+h3 {
+  color: #856088;
+  font-family: "Kanit";
+  font-size: 30px;
+  line-height:1em;
+  margin: 40;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  font-family: "Kanit";
+  color:#de5d83; font-weight:bold; 
+  
+ }
+
+.content {
+  max-width: 1000px;
+  position:block;
+  margin: auto;
+}
+
+.content1 {
+
+border-radius: 25px;
+border: 7px solid  #722f37;
+margin: auto;
+padding:10px;
+max-width: 400px;
+float:left;
+
+&__image1 {
+
+width: 250px;
+margin: 30px 30px 30px 0;
+float: left;
+}
+&__text1 {
+
+display: relative;
+}
+}
+
+.content2 {
+
+border-radius: 25px;
+border: 7px solid #722f37;
+margin: auto;
+padding: 10px;
+max-width: 400px;
+
+
+&__image2 {
+
+width: 250px;
+margin: 30px 30px 30px 0;
+float: right;
+}
+&__text2 {
+
+display: relative;
+}
+}
+
+.bcampfooter{
+
+}
+.past_events{
+	padding-top:20px;
+	transform:translate(-480px,750px);
+}

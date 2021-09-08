@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content ="width = device-width,initial-scale = 1.0">
+		<link rel="stylesheet" href="contact_style.css">
+		<link rel="stylesheet" href="headerfooter.css">
+		<title>Contact Us</title>
+	</head>
+	<body>
+	
+	<body>
+<div class="h_bg">
+<div class="wrap">
+<div class="header">
+		<div class="logo">
+			<h1><img src="Images/logo3.gif" alt=""></a></h1>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="nav_bg">
+<div class="wrap">
+		<ul class="nav">
+			<li><a href="home.html">Home</a></li>	
+			<li><a href="want_to_donate.html">Want to Donate?</a><li>   
+			<li><a href="recieveblood.html">Need Blood?</a><li>			
+            <li><a href="bloodcamp.html">Camps</a></li>
+            <li><a href="faq.html">Faqs</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+           	<li><a href="aboutus.html">About Us</a></li>
+            </ul>
+	</div>
+
+        
+</div>
+
+	
+	
+	<div class="container" id="container">
+	<div class="header1">
+		<h1> Get in Touch </h1>
+		<h3>Want to get in touch? We would love to hear from you.</h3>
+	</div>
+	<div class="control">
+			<div class="text-right">
+			<h4> Connect with us:</h4>
+			<p>For support or any questions:</p>
+			<p>Email us at:
+				<a href="email">support@something.com</a>
+			</p>
+			<p>Address:</p>
+			<p>Sindhi Society, Collector colony, Chembur, Mumbai</p>
+			<p>Call us:</p>
+			<p>1020304050</p>
+		</div>
+		<form class="contact-form" id="contact-form" onsubmit="validate();return false" action="contact_us.php" method="post">
+		<h3> Contact Us</h3>
+		<p> Please fill out the quick form and we will be in touch </p>
+		<label> Name</label>
+		
+		<input type="text" placeholder="Name"  name="name" id="name" autocomplete="off" required>
+		
+		<label>Email</label>
+		
+		<input type ="email" placeholder="Your email address" name="email" id="email" autocomplete="off" required>
+		<small id= "emsg"></small>
+		
+		<label> Subject</label>
+		<input type="text" placeholder="Subject \ Regarding with" id="sub" name="subject" autocomplete="off" required>
+		
+	
+		<label> Enter your message</label>
+		
+		<textarea id="msg"  placeholder="Enter your message" name="msg" autocomplete="off" required ></textarea>
+		<button  class="btn" onclick="validate()"> Submit </button>
+		</form>
+		</div>
+
+	</div>
+	<div class="ftr-bg">
+<div class="wrap">
+<div class="footer">
+	<div class="f_nav">
+		<ul>
+            <li><a href="faq.html">Faqs</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+			
+            </ul>
+	</div>
+		<div class="copy">
+			<p class="title">© All Rights Reserved </p>
+		</div>
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+
+
+	<script>
+		const isEmail =(emailVal) => {
+		var atSymbol = emailVal.indexOf("@");
+		if(atSymbol < 1) return false;
+		var dot = emailVal.lastIndexOf('.');
+		if(dot<= atSymbol +2) return false;
+		if(dot == emailVal.length -1) return false;
+		return true;
+		}
+		
+		function validate() {
+			var email= document.getElementById("email");
+			var emailVal= email.value.trim();
+			if (!isEmail(emailVal)){
+				document.getElementById("emsg").innerHTML = "please provide correct email address";}
+				
+			else {
+			document.getElementById("contact-form").submit();
+			}
+		}
+
+	
+	</script>
+	</body>
+</html>
